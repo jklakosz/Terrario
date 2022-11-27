@@ -1,11 +1,8 @@
 //File: main.cpp
 
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <OpenGL/gl.h>
 
-
-#include <OpenGL/gl.h>
 #include <iostream>
 
 int main ()
@@ -18,9 +15,11 @@ int main ()
     }
 
     //Setting window properties
-    glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 6);
+#ifdef __APPLE__
     glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
     glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //Actually create the window
@@ -32,18 +31,13 @@ int main ()
         return 1;
     }
     glfwMakeContextCurrent (window);
-
-    // start GLEW extension handler
-    glewExperimental = GL_TRUE;
-    glewInit ();
+    gladLoadGL();
 
     // get version info
-    const GLubyte* renderer = glGetString (GL_RENDERER); // get renderer string
-    const GLubyte* version = glGetString (GL_VERSION); // version as a string
+    const GLubyte* renderer = glGetString (GL_RENDERER);
+    const GLubyte* version = glGetString(GL_VERSION);
     std::cout<<"Renderer: "<<renderer<<std::endl;
     std::cout<<"OpenGL version supported "<<version<<std::endl;
-
-
 
     // close GL context and any other GLFW resources
     glfwTerminate();
