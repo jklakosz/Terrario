@@ -2,7 +2,9 @@ message(STATUS "Directories: Setting up...")
 
 set(ROOT_DIR ${CMAKE_SOURCE_DIR})
 
-set(CMAKE_BUILD_DIR ${ROOT_DIR}/.Build)
+set(CMAKE_BINARY_DIR         ${ROOT_DIR}/.Bin)
+set(CMAKE_CURRENT_BINARY_DIR ${CMAKE_BINARY_DIR})
+set(CMAKE_BUILD_DIR          ${ROOT_DIR}/.Build)
 
 set(RESOURCES_DIR ${ROOT_DIR}/Resources)
 set(SOURCES_DIR   ${ROOT_DIR}/Sources)
