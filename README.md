@@ -18,6 +18,8 @@ $> cmake build ../.. -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DGLF
 
 #### Intel
 
+Commands to build:
+
 ```
 $> mkdir -p .Build/conan && cd .Build/conan
 $> conan install ../.. --build=missing -s arch=x86_64
